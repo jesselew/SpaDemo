@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="container" id="main">
+    <h2>Create Event </h2>
+    <form class="form-horizontal" role="form" data-bind="submit: submit">
+        <div class="form-group">
+            <label for="eventTitle" class="col-sm-2 control-label">Title *</label>
+            <div class="col-sm-10">
+                <input type="text" data-bind="value: title" class="form-control" id="eventTitle" name="eventTitle" placeholder="Title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventDesc" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" data-bind="value: description" rows="3" id="eventDesc" name="eventDesc" placeholder="Description"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventStart" class="col-sm-2 control-label">Start *</label>
+            <div class="col-sm-10">
+                <input class="form-control datePicker" id="eventStart" data-bind="value: start" name="eventStart">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventEnd" class="col-sm-2 control-label">End *</label>
+            <div class="col-sm-10">
+                <input class="form-control datePicker" id="eventEnd" data-bind="value: end" name="eventEnd">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventOwner" class="col-sm-2 control-label">Owner *</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="eventOwner" name="eventOwner" data-bind="value: owner" placeholder="Owner">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" onclick="window.location.href='#/'" class="btn btn-link">Back</button>
+            </div>
+        </div>
+    </form>
+</div>

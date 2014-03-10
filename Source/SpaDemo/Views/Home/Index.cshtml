@@ -1,0 +1,68 @@
+﻿@{
+    Layout = null;
+    Response.Headers["X-UA-Compatible"] = "IE=10";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>My ASP.NET Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/datepicker3.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container body-content">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <p class="navbar-brand">Events Management</p>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#/">Home</a></li>
+                        <li><a href="#/events/create">Add Event</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="validaitonSummary" data-bind="template:{name: 'validation_template', data: $data }">
+        </div>
+        <script type="text/html" id="validation_template">
+            <div class="alert alert-danger fade in">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4 data-bind="text: title"></h4>
+                <ul data-bind="foreach: validation">
+                    <li data-bind="text: $data"></li>
+                </ul>
+            </div>
+        </script>
+        <div id="main">
+            <h2>Loading...</h2>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/director")
+    @Scripts.Render("~/bundles/require")
+
+    <script type="text/javascript">
+        $('.nav').on('click', 'li', function () {
+            $('.nav li.active').removeClass('active');
+            $(this).addClass('active');
+        })
+
+        var initDatePicker = function () {
+            $('#main .datePicker').datepicker({
+                autoclose: true
+            });
+        }
+    </script>
+
+    @Scripts.Render("~/bundles/app")
+</body>
+</html>
